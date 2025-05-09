@@ -1,5 +1,10 @@
 import dotenv from "dotenv";
-import { createWalletClient, http, parseEther, encodeFunctionData, zeroAddress } from "viem";
+import {
+  createWalletClient,
+  http,
+  encodeFunctionData,
+  zeroAddress,
+} from "viem";
 import { sepolia } from "viem/chains";
 import { privateKeyToAccount } from "viem/accounts";
 import { batchCallerABI, contractAddress } from "./contract";
@@ -8,7 +13,8 @@ dotenv.config();
 let privateKey = process.env.PK;
 if (!privateKey) {
   console.warn("Missing PK, using dummy account");
-  privateKey = "0xe4dc8cbe94cbc139084c9c7adc5c2a829d3246f76282679e0c067147a47eb3f8"
+  privateKey =
+    "0xe4dc8cbe94cbc139084c9c7adc5c2a829d3246f76282679e0c067147a47eb3f8";
 }
 const account = privateKeyToAccount(privateKey as `0x${string}`);
 
