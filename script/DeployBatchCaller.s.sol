@@ -11,7 +11,6 @@ contract DeployBatchCaller is Script {
     BatchCallAndSponsor public batchCaller;
 
     function run() external {
-
         uint256 deployerPk = vm.envUint("DEPLOYER_KEY");
         address deployer = vm.addr(deployerPk);
         console.log("Deployer:", deployer);
