@@ -97,7 +97,8 @@ contract BatchCallAndSponsorTest is Test {
             encodedCalls = abi.encodePacked(encodedCalls, calls[i].to, calls[i].value, calls[i].data);
         }
 
-        bytes32 digest = keccak256(abi.encodePacked(BatchCallAndSponsor(ALICE_ADDRESS).nonce(), encodedCalls));
+        bytes32 digest =
+            keccak256(abi.encodePacked(block.chainid, BatchCallAndSponsor(ALICE_ADDRESS).nonce(), encodedCalls));
 
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(ALICE_PK, MessageHashUtils.toEthSignedMessageHash(digest));
         bytes memory signature = abi.encodePacked(r, s, v);
@@ -171,7 +172,7 @@ contract BatchCallAndSponsorTest is Test {
         vm.attachDelegation(signedDelegation);
 
         uint256 nonceBefore = BatchCallAndSponsor(ALICE_ADDRESS).nonce();
-        bytes32 digest = keccak256(abi.encodePacked(nonceBefore, encodedCalls));
+        bytes32 digest = keccak256(abi.encodePacked(block.chainid, nonceBefore, encodedCalls));
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(ALICE_PK, MessageHashUtils.toEthSignedMessageHash(digest));
         bytes memory signature = abi.encodePacked(r, s, v);
 
