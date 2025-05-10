@@ -1,9 +1,10 @@
-name: CI
+name: Foundry CI
 
 on:
   push:
+    branches: [main]
   pull_request:
-  workflow_dispatch:
+    branches: [main]
 
 env:
   FOUNDRY_PROFILE: ci
