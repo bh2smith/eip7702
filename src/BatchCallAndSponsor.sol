@@ -18,6 +18,7 @@ import "@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol";
  * 2. Directly by the smart account: When the account itself (i.e. address(this)) calls the function, no signature is required.
  *
  * Replay protection is achieved by using a nonce that is included in the signed message.
+ * Cross chain replay protection is achieved by using the chainid in the signed message.
  */
 contract BatchCallAndSponsor {
     using ECDSA for bytes32;
@@ -51,7 +52,7 @@ contract BatchCallAndSponsor {
         for (uint256 i = 0; i < calls.length; i++) {
             encodedCalls = abi.encodePacked(encodedCalls, calls[i].to, calls[i].value, calls[i].data);
         }
-        bytes32 digest = keccak256(abi.encodePacked(nonce, encodedCalls));
+        bytes32 digest = keccak256(abi.encodePacked(block.chainid, nonce, encodedCalls));
 
         bytes32 ethSignedMessageHash = MessageHashUtils.toEthSignedMessageHash(digest);
 
