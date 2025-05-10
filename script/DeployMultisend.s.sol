@@ -4,10 +4,10 @@ pragma solidity ^0.8.28;
 import "forge-std/Script.sol";
 import "forge-std/Vm.sol";
 import "src/EOAMultisend.sol";
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol";
+import "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
+import "lib/openzeppelin-contracts/contracts/utils/cryptography/MessageHashUtils.sol";
 
-contract DeployBatchCaller is Script {
+contract DeployMultisend is Script {
     EOAMultisend public multisend;
 
     function run() external {

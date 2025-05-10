@@ -66,4 +66,5 @@ export const batchCallerABI = [
   },
 ] as const;
 
-export const contractAddress = "0x862d8Fd8dc4979b1AA72E808E73773dD0AAC3211";
+export const BATCH_CALLER_ADDRESS =
+  "0x862d8Fd8dc4979b1AA72E808E73773dD0AAC3211";
