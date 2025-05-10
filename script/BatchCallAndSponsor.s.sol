@@ -1,19 +1,12 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.28;
 
 import "forge-std/Script.sol";
-import {Vm} from "forge-std/Vm.sol";
-import {BatchCallAndSponsor} from "../src/BatchCallAndSponsor.sol";
-import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import {MessageHashUtils} from "@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol";
-
-contract MockERC20 is ERC20 {
-    constructor() ERC20("Mock Token", "MOCK") {}
-
-    function mint(address to, uint256 amount) external {
-        _mint(to, amount);
-    }
-}
+import "forge-std/Vm.sol";
+import "src/BatchCallAndSponsor.sol";
+import "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
+import "lib/openzeppelin-contracts/contracts/utils/cryptography/MessageHashUtils.sol";
+import "test/MockERC20.sol";
 
 contract BatchCallAndSponsorScript is Script {
     // Alice's address and private key (EOA with no initial contract code).
