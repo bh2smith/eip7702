@@ -67,4 +67,4 @@ export const batchCallerABI = [
 ] as const;
 
 export const BATCH_CALLER_ADDRESS =
-  "0x862d8Fd8dc4979b1AA72E808E73773dD0AAC3211";
+  "0xcd05c0c49d68d4d49f0273f69ef35f64789aedb8";
