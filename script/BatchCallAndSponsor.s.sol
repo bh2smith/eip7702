@@ -97,7 +97,8 @@ contract BatchCallAndSponsorScript is Script {
         for (uint256 i = 0; i < calls.length; i++) {
             encodedCalls = abi.encodePacked(encodedCalls, calls[i].to, calls[i].value, calls[i].data);
         }
-        bytes32 digest = keccak256(abi.encodePacked(block.chainid, BatchCallAndSponsor(ALICE_ADDRESS).nonce(), encodedCalls));
+        bytes32 digest =
+            keccak256(abi.encodePacked(block.chainid, BatchCallAndSponsor(ALICE_ADDRESS).nonce(), encodedCalls));
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(ALICE_PK, MessageHashUtils.toEthSignedMessageHash(digest));
         bytes memory signature = abi.encodePacked(r, s, v);
 
