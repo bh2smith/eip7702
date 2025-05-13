@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-alloy = { version = "0.15.11", features = ["full", "node-bindings"] }
+alloy = { version = "0.15.11", features = ["full", "node-bindings", "json"] }
+bytes = "1.10.1"
 eyre = "0.6.12"
-tokio = "1.45.0"
+tokio = { version = "1.45.0", features = ["rt-multi-thread", "macros"] }
