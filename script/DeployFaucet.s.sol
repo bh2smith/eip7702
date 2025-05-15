@@ -7,7 +7,6 @@ import "src/Faucet.sol";
 
 contract DeployFaucet is Script {
     Faucet public faucet;
-    address public tokenAddress = 0x0000000000000000000000000000000000000000;
 
     function run() external {
         uint256 deployerPk = vm.envUint("DEPLOYER_KEY");
