@@ -5,4 +5,6 @@ libs = ["lib"]
 evm_version = "prague"
 solc_version = "0.8.28"
 
-# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+rpc_endpoints = { sepolia = "https://sepolia.drpc.org", gnosis = "http://gnosis-erigon.dappnode:8545", ethereum = "https://eth.llamarpc.com" }
+etherscan_api_key="NAEIIEHN69F6EGTBQ18W4UIZXKJ36SD7ZN"
+

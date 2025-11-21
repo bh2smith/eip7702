@@ -12,8 +12,8 @@ contract DeployMultisend is Script {
     EOAMultisend public multisend;
 
     // This salt will be used for CREATE2 deployment
-    // Using a constant salt ensures the same address across all networks
-    bytes32 public constant SALT = keccak256("EOAMultisend-v1");
+    // Using ./mine-address.sh 7702e0abc
+    bytes32 public constant SALT = 0x000000000000000000000000000000000000000000000000b80000000452e7c9;
 
     function run() external {
         uint256 deployerPk = vm.envUint("DEPLOYER_KEY");
@@ -22,7 +22,7 @@ contract DeployMultisend is Script {
 
         // Get the bytecode of the contract
         bytes memory bytecode = type(EOAMultisend).creationCode;
-
+        console2.logBytes32(keccak256(bytecode));
         // Deploy using CREATE2
         address payable deployedAddress = payable(Create2.deploy(0, SALT, bytecode));
 

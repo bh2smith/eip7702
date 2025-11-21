@@ -3,8 +3,18 @@ name = "rs"
 version = "0.1.0"
 edition = "2024"
 
+[[bin]]
+name = "eoa-multisend"
+path = "src/main.rs"
+
+[[bin]]
+name = "mine-salt"
+path = "src/mine_salt.rs"
+
 [dependencies]
 alloy = { version = "0.15.11", features = ["full", "node-bindings", "json"] }
 bytes = "1.10.1"
 eyre = "0.6.12"
 tokio = { version = "1.45.0", features = ["rt-multi-thread", "macros"] }
+rayon = "1.10"
+hex = "0.4"

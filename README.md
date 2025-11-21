@@ -2,6 +2,10 @@
 
 An educational project demonstrating account abstraction and sponsored transaction execution using EIP-7702. This project uses Foundry for deployment, scripting, and testing.
 
+EOA Multisend is Deployed to `0x7702e0abc94b08eb155795c72624f2ca53763114` on Sepolia, Gnosis Chain and Mainnet 
+
+⚠️ This contract has not yet been audited - use at your own risk.
+
 ## Overview
 
 The `BatchCallAndSponsor` contract enables batch execution of calls by verifying signatures over a nonce and batched call data. It supports:
