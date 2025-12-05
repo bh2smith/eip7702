@@ -53,9 +53,7 @@ contract BatchCallAndSponsorScript is Script {
 
         // Token transfer
         calls[1] = BatchCallAndSponsor.Call({
-            to: address(token),
-            value: 0,
-            data: abi.encodeCall(ERC20.transfer, (BOB_ADDRESS, 100e18))
+            to: address(token), value: 0, data: abi.encodeCall(ERC20.transfer, (BOB_ADDRESS, 100e18))
         });
 
         vm.signAndAttachDelegation(address(implementation), ALICE_PK);

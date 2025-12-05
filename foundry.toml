@@ -5,6 +5,8 @@ libs = ["lib"]
 evm_version = "prague"
 solc_version = "0.8.28"
 
-rpc_endpoints = { sepolia = "https://sepolia.drpc.org", gnosis = "http://gnosis-erigon.dappnode:8545", ethereum = "https://eth.llamarpc.com" }
-etherscan_api_key="NAEIIEHN69F6EGTBQ18W4UIZXKJ36SD7ZN"
 
+[rpc_endpoints]
+sepolia = "https://sepolia.drpc.org"
+gnosis  = "http://gnosis-erigon.dappnode:8545"
+ethereum = "https://eth.llamarpc.com"

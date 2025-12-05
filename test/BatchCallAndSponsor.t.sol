@@ -46,9 +46,7 @@ contract BatchCallAndSponsorTest is Test {
 
         // Token transfer
         calls[1] = BatchCallAndSponsor.Call({
-            to: address(token),
-            value: 0,
-            data: abi.encodeCall(ERC20.transfer, (BOB_ADDRESS, 100e18))
+            to: address(token), value: 0, data: abi.encodeCall(ERC20.transfer, (BOB_ADDRESS, 100e18))
         });
 
         vm.signAndAttachDelegation(address(implementation), ALICE_PK);
@@ -113,9 +111,7 @@ contract BatchCallAndSponsorTest is Test {
         console2.log("Test wrong signature: Execution should revert with 'Invalid signature'.");
         BatchCallAndSponsor.Call[] memory calls = new BatchCallAndSponsor.Call[](1);
         calls[0] = BatchCallAndSponsor.Call({
-            to: address(token),
-            value: 0,
-            data: abi.encodeCall(MockERC20.mint, (BOB_ADDRESS, 50))
+            to: address(token), value: 0, data: abi.encodeCall(MockERC20.mint, (BOB_ADDRESS, 50))
         });
 
         // Build the encoded call data.
@@ -145,9 +141,7 @@ contract BatchCallAndSponsorTest is Test {
         console2.log("Test replay attack: Reusing the same signature should revert.");
         BatchCallAndSponsor.Call[] memory calls = new BatchCallAndSponsor.Call[](1);
         calls[0] = BatchCallAndSponsor.Call({
-            to: address(token),
-            value: 0,
-            data: abi.encodeCall(MockERC20.mint, (BOB_ADDRESS, 30))
+            to: address(token), value: 0, data: abi.encodeCall(MockERC20.mint, (BOB_ADDRESS, 30))
         });
 
         // Build encoded call data.

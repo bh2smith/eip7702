@@ -9,7 +9,7 @@ contract PreviewAddress is Script {
     function run() external view {
         uint256 deployerPk = vm.envUint("DEPLOYER_KEY");
         address deployer = vm.addr(deployerPk);
-        
+
         console2.log("===========================================");
         console2.log("CREATE2 Deployment Preview");
         console2.log("===========================================");
